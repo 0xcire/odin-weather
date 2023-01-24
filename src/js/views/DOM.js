@@ -1,0 +1,15 @@
+export const elements = {
+  app: document.querySelector("#app"),
+  weather: document.querySelector("#weather"),
+  location: document.querySelector(".city"),
+  search: document.querySelector(".search"),
+  pin: document.querySelector(".fa-location-pin"),
+  degrees: document.querySelector(".degrees"),
+  description: document.querySelector(".weather-description"),
+  feelsLike: document.querySelector(".feels-like"),
+  humidity: document.querySelector(".humidity"),
+  sunrise: document.querySelector(".sunrise"),
+  sunset: document.querySelector(".sunset"),
+  windDirection: document.querySelector(".wind-direction"),
+  windSpeed: document.querySelector(".wind-speed"),
+};

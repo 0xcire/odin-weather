@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/weather.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple weather app to see the weather"
+    />
+    <title>Weather App</title>
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/7177ae3b0b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div id="header">
+        <p class="location">
+          <i class="fa-solid fa-location-pin"></i>
+          <span class="city"></span>
+        </p>
+        <form id="search-form" action="submit">
+          <input
+            class="search hidden"
+            type="text"
+            name="query"
+            id="location-query"
+            placeholder="Enter a City, State"
+          />
+          <p class="error hidden">
+            Please enter a location using format City, State.
+          </p>
+        </form>
+      </div>
+      <div id="weather"></div>
+    </div>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
