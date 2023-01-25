@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/weather.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple weather app to see the weather"
+    />
+    <title>Weather App</title>
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/7177ae3b0b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    
+    <script type="module" crossorigin src="/assets/index-cfaefbbe.js"></script>
+    <link rel="stylesheet" href="/assets/index-09a8e059.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div id="header">
+          <p class="location">
+            <i class="fa-solid fa-location-pin"></i>
+            <span class="city"></span>
+          </p>
+          <form id="search-form" action="submit">
+            <input
+              class="search hidden"
+              type="text"
+              name="query"
+              id="location-query"
+              placeholder="Austin | London | Rome"
+            />
+            <p class="error hidden">
+              Please enter a location using format City, State.
+            </p>
+          </form>
+        </div>
+        <div id="weather">
+          <div class="main-info">
+            <div class="icon-and-degrees">
+              <img src="" alt="" class="icon" />
+              <p class="degrees"></p>
+            </div>
+            <p class="feels-like"></p>
+            <p class="weather-description"></p>
+          </div>
+          <div class="weather-info">
+            <div class="left">
+              <p class="humidity"></p>
+              <div class="wind">
+                <i class="wind-direction fa-solid fa-arrow-up hidden"></i>
+                <p class="wind-speed"></p>
+              </div>
+            </div>
+            <div class="right">
+              <p class="sunrise"></p>
+              <p class="sunset"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gif background-gif">
+        <!-- <img
+          src="https://media2.giphy.com/media/0Styincf6K2tvfjb5Q/giphy.gif?cid=36569211twc0inhic2n22eda8yieve01ax4zrtermx5cs06v&rid=giphy.gif&ct=g"
+          alt="weather-gif"
+        /> -->
+      </div>
+    </div>
+    
+  </body>
+</html>
