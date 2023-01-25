@@ -1,0 +1,13 @@
+#header {
+  font-size: 22px;
+}
+.search {
+  margin: 20px 0;
+}
+.error {
+  color: red;
+  font-size: 11px;
+}
+.hidden {
+  display: none;
+}

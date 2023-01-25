@@ -23,6 +23,3 @@ export const renderGif = (el, url) => {
   url("${url}")`;
   el.style.backgroundSize = "cover";
 };
-
-//alt = ${description}-icon
-// N is 348.75 deg + 11.25 = 0 meteorologist deg 0

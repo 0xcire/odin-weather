@@ -1,6 +1,7 @@
 import "./app.css";
 
 import Geolocation from "./js/models/Geolocation";
+import Geocode from "./js/models/Geocode";
 import Weather from "./js/models/Weather";
 import Gif from "./js/models/Gif";
 
@@ -8,14 +9,12 @@ import * as weatherView from "./js/views/weatherView";
 import * as headerView from "./js/views/headerView";
 
 import { elements } from "./js/views/DOM";
-import Geocode from "./js/models/Geocode";
 
 //env.js to mimic dotenv if this were to live on server. doesnt exactly serve purpose though
 
-//fahrenheit/celsius toggler
 //geo coding for US location is a bit strange
 //need to use different API? or use a toggle switch to indicate search query
-//is a US location which to me, does not make sense
+//is a US location which UX wise is a bit off
 
 const state = {
   geolocation: new Geolocation(),
@@ -28,17 +27,17 @@ elements.searchForm.addEventListener("submit", async function (e) {
   e.preventDefault();
   const query = new FormData(this).get("query");
 
-  const coords = await state.geocode.getCoordinates(query);
-  const data = await state.weather.getCurrentWeather(state.geocode.coordinates);
+  await state.geocode.getCoordinates(query);
+  await state.weather.getCurrentWeather(state.geocode.coordinates);
   const gifQuery = state.weather.createQuery();
-  const newGifURL = await state.gif.getRelatedGif(gifQuery);
+  await state.gif.getRelatedGif(gifQuery);
+
   elements.pin.style.color = "#f4f4f4";
   elements.container.style.color = "#f4f4f4";
-  headerView.renderLocationName(elements.location, state.geocode.name);
-  weatherView.renderWeather(data);
-  weatherView.renderGif(elements.gifBG, newGifURL);
 
-  // console.log(query);
+  headerView.renderLocationName(elements.location, state.geocode.name);
+  weatherView.renderWeather(state.weather.data);
+  weatherView.renderGif(elements.gifBG, state.gif.url);
   this.reset();
 });
 
@@ -54,25 +53,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       const position = await state.geolocation.getCurrentLocation();
       state.geolocation.storeLocation(position);
 
-      const name = await state.geocode.getCity(state.geolocation.coords);
+      await state.geocode.getCity(state.geolocation.coords);
 
-      const data = await state.weather.getCurrentWeather(
-        state.geolocation.coords
-      );
+      await state.weather.getCurrentWeather(state.geolocation.coords);
 
       const gifQuery = state.weather.createQuery();
 
-      const newGifURL = await state.gif.getRelatedGif(gifQuery);
+      await state.gif.getRelatedGif(gifQuery);
 
       headerView.pauseAnimation(elements.pin);
 
       elements.pin.style.color = "#f4f4f4";
 
-      //headerview.renderHome
-      headerView.renderLocationName(elements.location, name);
+      headerView.renderLocationName(elements.location, state.geocode.name);
       headerView.renderSearch(elements.search);
-      weatherView.renderWeather(data);
-      weatherView.renderGif(elements.gifBG, newGifURL);
+      weatherView.renderWeather(state.weather.data);
+      weatherView.renderGif(elements.gifBG, state.gif.url);
     } catch (error) {
       //user blocks location access so render home screen
       console.log(error);
