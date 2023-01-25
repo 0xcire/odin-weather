@@ -10,6 +10,21 @@ export default class Weather {
     this.data = {};
   }
 
+  formatSunset(data) {
+    const sunset = this.formatUnix(data.sys.sunset);
+    const time = sunset.split(":");
+    let hours = Number(time[0]);
+    const minutes = time[1];
+    if (hours > 12) {
+      hours = hours - 12;
+    } else if (hours === 0) {
+      hours = 12;
+    }
+    hours = hours.toString();
+    const formatSunset = `${hours}:${minutes}`;
+    return formatSunset;
+  }
+
   formatUnix(unix) {
     const date = new Date(unix * 1000);
     const hours = date.getHours().toString();
@@ -46,7 +61,7 @@ export default class Weather {
         feelsLike: data.main.feels_like,
         humidity: data.main.humidity,
         sunrise: this.formatUnix(data.sys.sunrise),
-        sunset: this.formatUnix(data.sys.sunset),
+        sunset: this.formatSunset(data),
         wind: {
           deg: data.wind.deg,
           speed: data.wind.speed,

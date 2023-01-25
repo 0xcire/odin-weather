@@ -27,25 +27,55 @@
   </head>
   <body>
     <div id="app">
-      <div id="header">
-        <p class="location">
-          <i class="fa-solid fa-location-pin"></i>
-          <span class="city"></span>
-        </p>
-        <form id="search-form" action="submit">
-          <input
-            class="search hidden"
-            type="text"
-            name="query"
-            id="location-query"
-            placeholder="Enter a City, State"
-          />
-          <p class="error hidden">
-            Please enter a location using format City, State.
+      <div class="container">
+        <div id="header">
+          <p class="location">
+            <i class="fa-solid fa-location-pin"></i>
+            <span class="city"></span>
           </p>
-        </form>
+          <form id="search-form" action="submit">
+            <input
+              class="search hidden"
+              type="text"
+              name="query"
+              id="location-query"
+              placeholder="Austin | London | Rome"
+            />
+            <p class="error hidden">
+              Please enter a location using format City, State.
+            </p>
+          </form>
+        </div>
+        <div id="weather">
+          <div class="main-info">
+            <div class="icon-and-degrees">
+              <img src="" alt="" class="icon" />
+              <p class="degrees"></p>
+            </div>
+            <p class="feels-like"></p>
+            <p class="weather-description"></p>
+          </div>
+          <div class="weather-info">
+            <div class="left">
+              <p class="humidity"></p>
+              <div class="wind">
+                <i class="wind-direction fa-solid fa-arrow-up hidden"></i>
+                <p class="wind-speed"></p>
+              </div>
+            </div>
+            <div class="right">
+              <p class="sunrise"></p>
+              <p class="sunset"></p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="weather"></div>
+      <div class="gif background-gif">
+        <!-- <img
+          src="https://media2.giphy.com/media/0Styincf6K2tvfjb5Q/giphy.gif?cid=36569211twc0inhic2n22eda8yieve01ax4zrtermx5cs06v&rid=giphy.gif&ct=g"
+          alt="weather-gif"
+        /> -->
+      </div>
     </div>
     <script type="module" src="./src/app.js"></script>
   </body>

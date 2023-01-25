@@ -1,9 +1,13 @@
 export const elements = {
   app: document.querySelector("#app"),
+  container: document.querySelector(".container"),
+  searchForm: document.querySelector("#search-form"),
   weather: document.querySelector("#weather"),
   location: document.querySelector(".city"),
-  search: document.querySelector(".search"),
   pin: document.querySelector(".fa-location-pin"),
+  search: document.querySelector(".search"),
+  error: document.querySelector(".error"),
+  icon: document.querySelector(".icon"),
   degrees: document.querySelector(".degrees"),
   description: document.querySelector(".weather-description"),
   feelsLike: document.querySelector(".feels-like"),
@@ -12,4 +16,5 @@ export const elements = {
   sunset: document.querySelector(".sunset"),
   windDirection: document.querySelector(".wind-direction"),
   windSpeed: document.querySelector(".wind-speed"),
+  gifBG: document.querySelector(".background-gif"),
 };

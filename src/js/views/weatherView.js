@@ -1,38 +1,27 @@
-export const renderWeather = (data, parent) => {
-  const weather = `
-      <div class="left">
-        <div class="icon-and-degrees">
-          <img
-            src="${data.iconURL}"
-            alt="${data.description}-icon"
-            class="icon"
-          />
-          <p class="degrees">${data.degrees}&#176;F</p>
-        </div>
-        <p class="weather-description">${data.description}</p>
-        <p class="feels-like">Feels like: ${data.feelsLike}&#176;F</p>
-        <p class="humidity">Humidity: ${data.humidity}%</p>
-      </div>
-      <div class="right">
-        <p class="sunrise">Sunrise at ${data.sunrise}</p>
-        <p class="sunset">Sunset at ${data.sunset}</p>
-        <div class="wind">
-          <i class="wind-direction fa-solid fa-arrow-up"></i>
-          <p class="wind-speed">${data.wind.speed}mph</p>
-        </div>
-      </div>
-    `;
+import { elements } from "./DOM";
 
-  parent.innerHTML = weather;
+//"render"
+export const renderWeather = (data) => {
+  elements.icon.src = `${data.iconURL}`;
+  elements.icon.alt = `${data.description}-icon`;
+  elements.degrees.innerHTML = `${Math.round(data.degrees)}&#176;F`;
+  elements.description.textContent = data.description;
+  elements.feelsLike.innerHTML = `Feels like: ${Math.round(
+    data.feelsLike
+  )}&#176;F`;
+  elements.humidity.textContent = `Humidity: ${data.humidity}%`;
+  elements.sunrise.textContent = `Sunrise at ${data.sunrise} AM`;
+  elements.sunset.textContent = `Sunset at ${data.sunset} PM`;
+  elements.windDirection.classList.remove("hidden");
+  const deg = 11.25 + data.wind.deg;
+  elements.windDirection.style.transform = `rotate(${deg}deg)`;
+  elements.windSpeed.textContent = `${data.wind.speed} mph`;
 };
 
 export const renderGif = (el, url) => {
-  const html = `
-    <div class="gif">
-     <img src=${url} alt="weather-gif" />
-    </div>
-  `;
-  el.innerHTML += html;
+  el.style.background = `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+  url("${url}")`;
+  el.style.backgroundSize = "cover";
 };
 
 //alt = ${description}-icon
