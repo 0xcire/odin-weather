@@ -1,4 +1,4 @@
-import { elements } from "./DOM";
+import { elements } from "./DOM.js";
 
 //"render"
 export const renderWeather = (data) => {

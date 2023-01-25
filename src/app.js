@@ -1,14 +1,14 @@
-import "./app.css";
+// import "./app.css";
 
-import Geolocation from "./js/models/Geolocation";
-import Geocode from "./js/models/Geocode";
-import Weather from "./js/models/Weather";
-import Gif from "./js/models/Gif";
+import Geolocation from "./js/models/Geolocation.js";
+import Geocode from "./js/models/Geocode.js";
+import Weather from "./js/models/Weather.js";
+import Gif from "./js/models/Gif.js";
 
-import * as weatherView from "./js/views/weatherView";
-import * as headerView from "./js/views/headerView";
+import * as weatherView from "./js/views/weatherView.js";
+import * as headerView from "./js/views/headerView.js";
 
-import { elements } from "./js/views/DOM";
+import { elements } from "./js/views/DOM.js";
 
 //env.js to mimic dotenv if this were to live on server. doesnt exactly serve purpose though
 
@@ -43,7 +43,7 @@ elements.searchForm.addEventListener("submit", async function (e) {
 
 //on page load flow
 document.addEventListener("DOMContentLoaded", async () => {
-  elements.pin.style.color = "#000";
+  // elements.pin.style.color = "#000";
 
   //issue ---
   //no ability to detect navigator.permission.query state change when initially prompted?

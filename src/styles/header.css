@@ -16,3 +16,7 @@
 .hidden {
   display: none;
 }
+
+.fa-location-pin {
+  color: #000;
+}
